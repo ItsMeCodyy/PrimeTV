@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrimeTV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="scroll-prog"></div>
+
+  <!-- SPLASH -->
+  <div id="splash">
+    <div class="splash-logo">Prime<em>TV</em></div>
+    <div class="splash-loader"><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- ambient -->
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="nav-logo" href="#">Prime<em>TV</em></a>
+    <div class="nav-links">
+      <button class="nl active" data-f="all">Home</button>
+      <button class="nl" data-f="movie">Movies</button>
+      <button class="nl" data-f="tv">TV Shows</button>
+      <button class="nl" id="discover-btn" data-f="discover">Discover</button>
+    </div>
+    <div class="nav-end">
+      <div class="sb" id="sb">
+        <svg class="sb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7.5"/><line x1="20.5" y1="20.5" x2="15.8" y2="15.8"/></svg>
+        <input id="si" type="text" placeholder="Search movies & shows…" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="nav-ava">P</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div id="hslides" class="hslides"></div>
+    <div class="hscrim-b"></div>
+    <div class="hscrim-l"></div>
+    <div class="hscrim-t"></div>
+    <div class="hbody" id="hbody">
+      <div id="hchips" class="hchips"></div>
+      <h1 id="htitle" class="htitle">—</h1>
+      <p  id="hdesc"  class="hdesc"></p>
+      <div class="hbtns">
+        <button class="btn-s" id="hplay"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Play</button>
+        <button class="btn-o" id="hinfo"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>Info</button>
+        <button class="btn-o" id="hrandom">🎲 Random Movie</button>
+      </div>
+    </div>
+    <div class="hindic">
+      <div id="hdots" class="hdots"></div>
+      <div class="hpbar"><div id="hpfill" class="hpfill"></div></div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main id="main"></main>
+
+  <!-- PERSONALIZED SWIPE DISCOVERY -->
+  <section id="discover" class="discover-view" aria-hidden="true">
+    <div class="discover-head">
+      <button id="discover-close" class="discover-close" aria-label="Close discovery">×</button>
+      <span class="discover-kicker">PrimeTV Picks</span>
+      <h2>Find your next favorite</h2>
+      <p>Swipe right to favorite. Swipe left if it is not for you.</p>
+    </div>
+    <div id="swipe-stage" class="swipe-stage"><div class="spin"></div></div>
+    <div class="swipe-actions">
+      <button id="swipe-pass" class="swipe-action pass" aria-label="Not interested">×</button>
+      <button id="swipe-info" class="swipe-info">More info</button>
+      <button id="swipe-like" class="swipe-action like" aria-label="Favorite">♥</button>
+    </div>
+    <p id="swipe-stats" class="swipe-stats"></p>
+  </section>
+
+  <!-- CARD POPUP -->
+  <div id="cpop" class="cpop">
+    <div class="cpop-img-wrap"><img id="cpop-img" src="" alt=""><div class="cpop-img-fade"></div></div>
+    <div class="cpop-body">
+      <div class="cpop-actions">
+        <button id="cpop-play" class="cpop-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <button id="cpop-info" class="cpop-info"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></button>
+      </div>
+      <div id="cpop-title"  class="cpop-title"></div>
+      <div id="cpop-tags"   class="cpop-tags"></div>
+      <p   id="cpop-desc"   class="cpop-desc"></p>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div id="soverlay" class="soverlay">
+    <p id="sq-label" class="sq-label"></p>
+    <div id="sgrid" class="sgrid"></div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="moverlay" class="moverlay">
+    <div id="mbox" class="mbox">
+      <button id="mclose" class="mclose"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+      <div class="mbill">
+        <img id="mimg" src="" alt="">
+        <div class="mbill-fade"></div>
+        <div class="mbill-body">
+          <h2 id="mtitle"></h2>
+          <div class="mbtns"><button class="btn-s" id="mplay"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Play</button></div>
+        </div>
+      </div>
+      <div class="minfo">
+        <div id="mtags"    class="mtags"></div>
+        <p  id="moverview"></p>
+        <div id="mcast"   class="mcast"></div>
+        <div id="meps"    class="meps">
+          <p class="sec-label">Episodes</p>
+          <div id="stabs" class="stabs"></div>
+          <div id="epgrid" class="epgrid"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAYER -->
+  <div id="pwrap" class="pwrap">
+    <button id="pclose" class="pclose"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+    <iframe id="piframe" src="" frameborder="0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture; encrypted-media"></iframe>
+  </div>
+
+  <div id="toasts"></div>
+  <script src="app.js"></script>
+</body>
+</html>
