@@ -19,7 +19,13 @@ A light, purple movie and TV interface built with HTML, CSS, and JavaScript. Sta
 - Email signup, signin, confirmation, password reset, and signout through Supabase Auth.
 - Row-level database permissions restrict profiles and history to their account owner.
 
-### Run
+### Open the website
+
+Use **[PrimeTV on GitHub Pages](https://itsmecodyy.github.io/PrimeTV/)**. GitHub hosts the site; you do not need to run a server or leave your Mac on.
+
+### Optional local development
+
+The following commands are only for developers editing the site locally:
 
 ```sh
 npm ci
